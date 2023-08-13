@@ -1,0 +1,17 @@
+{
+  "name": "haunted-house",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite src",
+    "build": "vite build src --emptyOutDir",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "three": "^0.155.0"
+  }
+}
