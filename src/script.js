@@ -54,8 +54,20 @@ house.add(bush1, bush2, bush3, bush4)
 const graves = new THREE.Group()
 scene.add(graves)
 
-const graveGeometry = new THREE.BoxGeometry(0.6, 0.8, 0.2)
-const graveMaterial = new THREE.MeshBasicMaterial({color: '#b2b6b1'})
+const graveGeometry = new THREE.BoxGeometry(0.6, 0.8 + (Math.random() - 0.5), 0.2)
+const graveMaterial = new THREE.MeshStandardMaterial({color: '#b2b6b1'})
+for(let i = 0; i < 50; i++) {
+  const angle = Math.random() * Math.PI * 2;
+  const radius = 3 + Math.random() * 6
+  const x = Math.sin(angle) * radius
+  const z = Math.cos(angle) * radius
+
+  const grave = new THREE.Mesh(graveGeometry, graveMaterial)
+  grave.position.set(x, 0.4, z)
+  grave.rotation.y = (Math.random() - 0.5) * 1
+  grave.rotation.z = (Math.random() - 0.5) * 0.4
+  graves.add(grave)
+}
 
 const floor = new THREE.Mesh(
   new THREE.PlaneGeometry(20, 20),
